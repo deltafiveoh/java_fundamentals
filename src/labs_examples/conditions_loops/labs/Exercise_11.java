@@ -22,5 +22,19 @@ package labs_examples.conditions_loops.labs;
  */
 
 public class Exercise_11 {
+    public static void main(String[] args) {
+        for (int x = 1; x < 11;x++){
+            int finalnumber = x*10;
+            for (int y = 1; y < 10; y++){
+                int result = x*y;
+                if (result<10){
+                    System.out.print(result + " |");
+                } else System.out.print(result + "|");
+            }
+            if (finalnumber < 100) {
+                System.out.println(finalnumber + " |");
+            } else System.out.println(finalnumber + "|");
+        }
 
+    }
 }
