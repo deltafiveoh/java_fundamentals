@@ -1,5 +1,7 @@
 package labs_examples.arrays.labs;
 
+import java.util.ArrayList;
+
 /**
  *  ArrayLists
  *
@@ -10,4 +12,22 @@ package labs_examples.arrays.labs;
  *
  */
 public class Exercise_07 {
+    public static void main(String[] args) {
+        ArrayList<String> stringy = new ArrayList<String>();
+
+        stringy.add("I");
+        stringy.add("will");
+        stringy.add("never");
+        stringy.add("scoop");
+        stringy.add("cat");
+        stringy.add("poop");
+        stringy.add("again");
+
+        System.out.println(stringy.indexOf("cat"));
+        System.out.println(stringy.get(4));
+
+        stringy.set(4, "dog");
+
+        System.out.println(stringy.get(4));
+    }
 }
