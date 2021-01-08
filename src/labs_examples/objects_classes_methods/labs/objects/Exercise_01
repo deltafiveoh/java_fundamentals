@@ -1,5 +1,73 @@
+package labs_examples.objects_classes_methods.labs.objects;
 
-Following the example in CarExample.java, please use Object Composition to model an Airplane class.
-The Airplane class must be composed of at least 4 other classes (as well as any primitive types you'd like).
-The Airplane class itself should have a fuel capacity (double) variable, as well as a currentFuelLevel variable.
-We'll use these a bit later.
+/**
+* Following the example in CarExample.java, please use Object Composition to model an Airplane class.
+* The Airplane class must be composed of at least 4 other classes (as well as any primitive types you'd like).
+* The Airplane class itself should have a fuel capacity (double) variable, as well as a currentFuelLevel variable.
+* We'll use these a bit later.
+**/
+
+public static void main (String[] args){
+
+}
+
+class Engine {
+
+    double horsepower;
+
+        public Engine(double horsepower){
+            this.horsepower = horsepower;
+        }
+}
+
+class Wings {
+
+    boolean flaps;
+    String ailerons;
+
+        public Wings(boolean flaps, String ailerons){
+            this.flaps = flaps;
+            this.ailerons = ailerons;
+        }
+
+}
+
+class LandingGear {
+
+    boolean wheels;
+
+        public LandingGear(boolean wheels){
+            this.wheels = wheels;
+        }
+}
+
+class Radar {
+
+    float frequency;
+    boolean radarOn;
+
+        public Radar(boolean radarOn, float frequency){
+            this.radarOn = radarOn;
+            this.frequency = frequency;
+        }
+}
+
+Class Airplane {
+
+    Radar radar;
+
+    LandingGear landingGear;
+
+    Wings wings;
+
+    Engine engine;
+
+    int fuelCapacity;
+
+    double currentFuelLevel;
+
+        public Airplane(Radar radar, LandingGear landingGear, Wings wings, Engine engine, int fuelCapacity, double currentFuelLevel){
+
+
+        }
+}

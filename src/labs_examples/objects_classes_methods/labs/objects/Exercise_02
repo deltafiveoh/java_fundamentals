@@ -2,3 +2,32 @@
 Please demonstrate Object association by creating at least two POJOs and a Controller class. The Controller
 class will contain the main() method. In the main() create an object of each POJO you just created and associate
 the two together. (This is easier than it sounds. Refer to the Object Association documentation if you're not sure.)
+
+class Controller {
+    public static void main(String[] args){
+        Car myCar = new Car("4x4");
+        Trailer myTrailer = new Trailer(false);
+
+        System.out.print("My car is a " + myCar + " and ");
+            if(myTrailer == true){
+                System.out.println(" has a trailer attached.");
+            } else {
+                System.out.println(" does not have a trailer attached.");
+            }
+
+    }
+}
+
+class Car {
+    String type;
+        public Car(String type){
+            this.type = type;
+        }
+}
+
+class Trailer {
+    boolean hasTrailer;
+        public Trailer(boolean hasTrailer){
+            this.hasTrailer = hasTrailer;
+        }
+}

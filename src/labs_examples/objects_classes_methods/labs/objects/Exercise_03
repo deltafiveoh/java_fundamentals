@@ -3,3 +3,23 @@ For this exercise please create two classes. The first class is the controller a
 The second class is a POJO. Just a simple object type class that defines an object. In this POJO, demonstrate
 at least three overloaded constructors. In the main() method, create at least 3 objects of your POJO class, each using
 a different constructor.
+
+class Example {
+    public static void main (String[] args){
+        ExampleObject();
+            System.out.print("There is " + ExampleObject + " object");
+        ExampleObject("box");
+            System.out.print("There is a " + ExampleObject + " object");
+    }
+}
+
+class ExampleObject {
+
+    String object;
+        public ExampleObject();
+            object = "no";
+
+        public ExampleObject(String object){
+            object = this.object;
+        }
+}
