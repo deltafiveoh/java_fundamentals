@@ -1,4 +1,4 @@
-package labs_examples.objects_classes_methods.examples.advanced;
+          package labs_examples.objects_classes_methods.examples.advanced;
 
 // Demonstrate an overloaded constructor.
 class MyClass3 {

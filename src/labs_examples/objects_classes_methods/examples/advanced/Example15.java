@@ -5,7 +5,7 @@ class Factorial {
 
     // This is a recursive function.
     int factR(int n) {
-        System.out.println("in factR");
+       // System.out.println("in factR");
         int result;
 
         if(n==1)

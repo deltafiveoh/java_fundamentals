@@ -1,8 +1,10 @@
 
 Without running the code below, please tell me what will print. Why?
 
+Parent called will print since it is automatically called as the parent of the object's class. Then child called will print, as it is invoked upon the child class' creation
 
-
+Output = Parent called
+         Child called
 
 public class InheritanceTest
 {

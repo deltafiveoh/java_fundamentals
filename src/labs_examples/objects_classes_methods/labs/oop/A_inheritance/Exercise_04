@@ -1,7 +1,7 @@
 
 Without running the code below, please tell me what it will print.
 
-
+Child called will print since the method doSomething() has the exact same format in the inheriting class (Child), overriding the parent method.
 
 public class InheritanceTest
 {
