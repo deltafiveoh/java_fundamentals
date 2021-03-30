@@ -62,7 +62,7 @@ public class PolyExample {
         multiAdd example = new multiAdd(2, 4, 5);
 
         InterfaceDependentExample ex = new InterfaceDependentExample(example);
-        
+
         System.out.println(example.a + example.b + example.c);
         ex.test();
         System.out.println(example.a + example.b + example.c);
