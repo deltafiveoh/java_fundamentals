@@ -24,6 +24,12 @@ public class Deck {
         }
     }
 
+//    public void clearDeck(){
+//        for (card : cards) {
+//            card = null;
+//        }
+//    }
+
     public double randomNumGen(){
         return Math.floor(Math.random()*52);
     }

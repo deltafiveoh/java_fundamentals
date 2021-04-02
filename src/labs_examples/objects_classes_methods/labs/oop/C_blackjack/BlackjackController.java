@@ -1,7 +1,4 @@
 package labs_examples.objects_classes_methods.labs.oop.C_blackjack;
-
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class BlackjackController {
@@ -11,6 +8,11 @@ public class BlackjackController {
         String userName = user.nextLine();
         return userName;
     }
+    boolean wantsToPlay;
+    public static int numGamesPlayed = 0;
+    public static int computerWon = 0;
+    public static int playerWon = 0;
+    Deck gameDeck = new Deck();
 
     String inputName = selectUser();
 
@@ -18,6 +20,9 @@ public class BlackjackController {
     Player p2 = new Player("Computer", 500);
 
     public void playBlackJack(){
+        numGamesPlayed++;
+        gameDeck.cards = new Card[52];
+        gameDeck.cardNum = 0;
         boolean keepPlayingP1 = true;
         boolean keepPlayingP2 = true;
         boolean p1Busted = false;
@@ -27,9 +32,7 @@ public class BlackjackController {
 
         Scanner scanner = new Scanner(System.in);
 
-        Deck gameDeck = new Deck();
         gameDeck.createDeck();
-
         gameDeck.deal(p1);
         gameDeck.deal(p2);
         gameDeck.deal(p1);
@@ -74,34 +77,64 @@ public class BlackjackController {
                 System.out.println("Draw! Both players busted");
                 System.out.println(p1.name + " had a final hand value of " + p1.hand.handValue);
                 System.out.println(p2.name + " had a final hand value of " + p2.hand.handValue);
+                p1.potValue += p1.playerBet;
+                p1.playerBet = 0;
+                p2.potValue += p2.playerBet;
+                p2.playerBet = 0;
             }
             if (p1Busted && !p2Busted){
                 System.out.println("The computer player wins");
                 System.out.println(p1.name + " had a final hand value of " + p1.hand.handValue);
                 System.out.println(p2.name + " had a final hand value of " + p2.hand.handValue);
+                p2.potValue += p1.playerBet;
+                p1.playerBet = 0;
+                p2.potValue += p2.playerBet;
+                p2.playerBet = 0;
+                computerWon++;
             }
             if (!p1Busted && p2Busted){
                 System.out.println(p1.name + " wins");
                 System.out.println(p1.name + " had a final hand value of " + p1.hand.handValue);
                 System.out.println(p2.name + " had a final hand value of " + p2.hand.handValue);
+                p1.potValue += p1.playerBet;
+                p1.playerBet = 0;
+                p1.potValue += p2.playerBet;
+                p2.playerBet = 0;
+                playerWon++;
             }
             if (!p1Busted && !p2Busted){
                 if (p1.hand.handValue > p2.hand.handValue) {
                     System.out.println(p1.name + " wins");
                     System.out.println(p1.name + " had a final hand value of " + p1.hand.handValue);
                     System.out.println(p2.name + " had a final hand value of " + p2.hand.handValue);
+                    p1.potValue += p1.playerBet;
+                    p1.playerBet = 0;
+                    p1.potValue += p2.playerBet;
+                    p2.playerBet = 0;
+                    playerWon++;
+
                 }
                 if (p2.hand.handValue > p1.hand.handValue) {
                     System.out.println("The computer player wins");
                     System.out.println(p1.name + " had a final hand value of " + p1.hand.handValue);
                     System.out.println(p2.name + " had a final hand value of " + p2.hand.handValue);
+                    p2.potValue += p1.playerBet;
+                    p1.playerBet = 0;
+                    p2.potValue += p2.playerBet;
+                    p2.playerBet = 0;
+                    computerWon++;
                 }
                 if (p2.hand.handValue == p1.hand.handValue){
                     System.out.println("Draw! Both players have the same score");
                     System.out.println("Both players have a final hand value of " + p1.hand.handValue);
+                    p1.potValue += p1.playerBet;
+                    p1.playerBet = 0;
+                    p2.potValue += p2.playerBet;
+                    p2.playerBet = 0;
                 }
             }
         }
+
     }
 
     public void handDetails(Player p1, Player p2){
@@ -123,12 +156,19 @@ public class BlackjackController {
         System.out.println("The total hand value is: " + p1.hand.handValue);
     }
 
-    public static void main(String[] args) {
-        BlackjackController game = new BlackjackController();
-        game.selectUser();
-        game.playBlackJack();
-
+    public void continuePlaying(){
+        Scanner scanner = new Scanner(System.in);
+        char choice;
+        System.out.println("Continue playing? Y/N");
+        choice = scanner.next().charAt(0);
+        if (choice == 'Y' || choice == 'y'){
+            wantsToPlay = true;
+        }
+        if (choice == 'N' || choice == 'n'){
+            wantsToPlay = false;
+        }
     }
+
 }
 
 /*

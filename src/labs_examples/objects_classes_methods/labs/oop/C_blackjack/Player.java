@@ -6,11 +6,21 @@ public class Player {
     String name;
     Hand hand = new Hand();
     int potValue;
+    int playerBet = 0;
 
     Player(String name, int potValue){
         this.name = name;
         this.potValue = potValue;
     }
+
+    public void makeBet(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Make your bet between 0 and 100");
+        int bet = scanner.nextInt();
+        potValue -= bet;
+        playerBet += bet;
+    }
+
 
     boolean compDecision;
 
@@ -37,5 +47,11 @@ public class Player {
         System.out.println("Input player name: ");
         String human = scanner.nextLine();
         name = human;
+    }
+
+    public void aiBet() {
+        double bet = Math.ceil(Math.random()*100);
+        potValue -= (int)bet;
+        playerBet += (int)bet;
     }
 }
