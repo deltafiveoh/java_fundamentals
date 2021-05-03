@@ -1,0 +1,5 @@
+George,Poodle,10,5
+Fluff,Labrador,50,12
+Bomb,Bulldog,30,3
+
+Written in different order than initial dogs file
